@@ -1,9 +1,15 @@
 package com.solutions;
 
-//There are 16 hourglasses in arr. An hourglass sum is the sum of an hourglass' values.
+//1) There are 16 hourglasses in arr. An hourglass sum is the sum of an hourglass' values.
 // Calculate the hourglass sum for every hourglass in arr,
 // then print the maximum hourglass sum. The array will always be 6X6.
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+//2) Rotate an array n times
 public class TwoDArray {
 
     public static void main(String[] args) {
@@ -38,9 +44,33 @@ public class TwoDArray {
             }
 
             System.out.println("");
+
         }
 
         System.out.println("The sum is "+ val);
+
+        // rotate an array
+        int arr[] = {4,5,6,7,8,9};
+        int d= 6;
+
+        for (int i = 0, j=d-1; i < j; i++, j--) {
+            int temp =arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+        }
+        for (int i = d, j=arr.length-1; i < j; i++, j--) {
+            int temp =arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+        }
+        for (int i = 0, j=arr.length-1; i < j; i++, j--) {
+            int temp =arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+        }
+        System.out.println(Arrays.toString(arr));
+
     }
+
 
 }
